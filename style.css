@@ -1,0 +1,250 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 66.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    margin: 0 13rem;
+}
+
+.logo{
+    font-size: 5rem;
+}
+
+.logo span{
+    color: purple;
+    font-weight: 700;
+}
+
+.link:link,
+.link:visited{
+    text-decoration: none;
+    color: black;
+    position: relative;
+    margin-right: 1.2rem;
+    padding: 1rem 2rem;
+    transition: all .3s ease .4s;
+}
+
+.link-btn:link,
+.link-btn:visited{
+    padding: 1rem 2rem;
+    background-color: purple;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    transition: all .4s ease;
+}
+
+.link-btn:hover{
+    background-color: black;
+    transform: scale(1.1);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.7);
+}
+
+.nav{
+    font-size: 2rem;
+    display: flex;
+}
+
+.link::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: purple;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .4s ease;
+    z-index: -1;
+}
+.link::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: purple;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: all .4s ease;
+    z-index: -1;
+}
+
+.link:hover::before,
+.link:hover::after{
+    transform: scaleX(1);
+}
+
+.link:hover{
+    background-color: purple;
+    color: white;
+}
+
+.container{
+    margin-top: 6rem;
+}
+.first-half{
+    display: flex;
+}
+
+.title{
+    margin: 20rem auto;
+    text-align: center;
+}
+
+.title-text{
+    font-size: 10rem;
+    font-weight: 200;
+    color: black;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    text-shadow: 0 1rem 2rem rgba(0,0,0,.6);
+}
+.rows{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.title-text span{
+    color: purple;
+    font-style: italic;
+    font-weight: 300;
+}
+
+
+.shortcut{
+    font-size: 1.6rem;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    letter-spacing: 9px;
+}
+.shortcut::before,
+.shortcut::after{
+    content: "";
+    display: inline-block;
+    width: 4rem;
+    border-bottom: 2px solid black;
+    color: black;
+    transform: translateY(-4px);
+}
+
+::selection{
+    background-color: purple;
+    color: white;
+}
+
+.toggle div{
+    height: 5px;
+    width: 60px;
+    background-color: black;
+    margin: 5px;
+}
+@media screen and (max-width:1300px){
+    .header{
+        margin: 0;
+    }
+}
+@media screen and (max-width:1050px){
+    body{
+        overflow-x: hidden;
+    }
+    .header{
+        justify-content: space-around;
+        margin: 0;
+        position: relative;
+        z-index: 100;
+    }
+    .nav{
+        position: absolute;
+        top: 10rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: purple;
+        width: 100%;
+        height: 62vh;
+        overflow: hidden;
+        transform: scaleY(0);
+        transform-origin: top;
+        text-align:center;
+        z-index: -1;
+        transition: all .4s ease;
+    }
+    .link-btn{
+        display: none;
+    }
+    .link:link,
+    .link:visited{
+        color: white;
+        opacity: 0;
+    }
+
+    .logo{
+        font-size:3rem;
+    }
+    .title{
+        margin: auto;
+    }
+    .title-text{
+        font-size:7rem;
+    }
+
+    /* GRID */
+
+    .rows{
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+    }
+    .second-half{
+        display: none;
+    }
+}
+
+@media screen and (max-width:585px){
+    .shortcut{
+        font-size: .6rem;
+    }
+    .shortcut::before,
+    .shortcut::after{
+        width: 3rem;
+        border-bottom: 1px solid black;
+        transform: translateY(-2px);
+    }
+}
+
+.toggler{
+    transform: scaleY(1);
+}
+
+@keyframes animateLink {
+    from{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
